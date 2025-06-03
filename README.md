@@ -9,9 +9,11 @@ Ecrã inicial:
 ![Ecrã principal](./imagens/ecra_inicial.png)
 
 Ecrã dos utentes:
+
 ![Ecrã dos utentes](./imagens/ecra_utentes.png)
 
 Ecrã das consultas:
+
 ![Ecrã das consultas](./imagens/ecra_consultas.png)
 
 ## Como correr o projeto
