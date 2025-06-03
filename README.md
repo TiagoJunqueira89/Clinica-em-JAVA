@@ -1,6 +1,6 @@
 # Nome da App
 
-App em Java desenvolvida por mim.
+App em Java para CRUD de utentes e consultas.
 
 ## Prints da App
 
