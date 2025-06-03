@@ -26,5 +26,6 @@ Ecrã das consultas:
 ## Tecnologias usadas
 
 - Java
+- MYSQL
 
 ---
