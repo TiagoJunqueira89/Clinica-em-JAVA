@@ -4,8 +4,8 @@ App em Java desenvolvida por mim.
 
 ## Prints da App
 
-Ecrã principal: 
-![Ecrã principal](./imagens/ecra_principal.png)
+Ecrã inicial: 
+![Ecrã principal](./imagens/ecra_inicial.png)
 
 Ecrã dos utentes:
 ![Ecrã dos utentes](./imagens/ecra_utentes.png)
