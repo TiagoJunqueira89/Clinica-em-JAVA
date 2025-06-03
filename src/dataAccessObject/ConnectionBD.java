@@ -3,30 +3,33 @@ package dataAccessObject;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-
-/**
- *
- * @author Tiago Junqueira
- */
+import java.util.Properties;
+import java.io.FileInputStream;
+import java.io.IOException;
 
 public class ConnectionBD {
-    private static final String SERVER = "157.90.92.167";
-    private static final String USER = "minhabdp_java";
-    private static final String PASSWORD = "Jockadh10.";
-    private static final String DB_NAME = "minhabdp_clinica_java";
-    private static final String URL = "jdbc:mysql://" + SERVER + ":3306/" + DB_NAME;
+    private static String SERVER;
+    private static String USER;
+    private static String PASSWORD;
+    private static String DB_NAME;
+    private static String URL;
     private static Connection connection;
 
-    // Construtor privado para evitar instanciar esta classe.
+    static {
+        Properties props = new Properties();
+        try (FileInputStream fis = new FileInputStream("db.properties")) {
+            props.load(fis);
+            SERVER = props.getProperty("SERVER");
+            USER = props.getProperty("USER");
+            PASSWORD = props.getProperty("PASSWORD");
+            DB_NAME = props.getProperty("DB_NAME");
+            URL = "jdbc:mysql://" + SERVER + ":3306/" + DB_NAME;
+        } catch (IOException e) {
+            System.err.println("Erro a carregar configurações da BD: " + e.getMessage());
+        }
+    }
+
     private ConnectionBD() {}
-    
-    /**
-     * Retoma uma ligação ativa a base de dados.
-     * Se a ligação não existir ou estiver fechada, cria uma nova.
-     *
-     * @return Objeto Connection representando a ligação a base de dados.
-     * @throws SQLException Se ocorrer um erro ao estabelecer a ligação.
-     */
 
     public static Connection getConnection() throws SQLException {
         if (connection == null || connection.isClosed()) {
@@ -34,10 +37,6 @@ public class ConnectionBD {
         }
         return connection;
     }
-    
-     /**
-     * Fecha a ligação à base de dados
-     */
 
     public static void closeConnection() {
         try {
@@ -49,12 +48,6 @@ public class ConnectionBD {
         }
     }
 
-    /**
-     * Verifica se existe uma ligação ativa à base de dados
-     *
-     * @return true se a ligação estiver ativa, false caso contrário.
-     */
-    
     public static boolean isConnected() {
         try {
             return connection != null && !connection.isClosed();
@@ -63,6 +56,3 @@ public class ConnectionBD {
         }
     }
 }
-
-    
-
