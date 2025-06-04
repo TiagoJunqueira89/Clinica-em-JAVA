@@ -14,7 +14,13 @@ Ecrã dos utentes:
 
 Ecrã das consultas:
 
-![Ecrã das consultas](./imagens/ecra_consultas.png)
+![Ecrã das_consultas](./imagens/ecra_consultas.png)
+
+# Modelo de dados em MYSQL
+
+Modelo de dados:
+
+![Modelo de dados](./imagens/modelo_de_dados.png)
 
 ## Como correr o projeto
 1. Usa o ficheiro "db.properties.example" para criares um ficheiro de ligação á tua base de dados.
